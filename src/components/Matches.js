@@ -6,7 +6,6 @@ import classes from "./cards.module.css";
 
 const Matches = (props) => {
     const [allData, setAllData] = useState([]);
-    const [checkMatches, setcheckMatches] = useState(false);
     const { isError, isLoading, sendRequest } = useHttp();
 
     useEffect(() => {
@@ -14,7 +13,22 @@ const Matches = (props) => {
         const url = `http://api.football-data.org/v2/competitions/${props.id}`;
         
         const applyData = (data) => {
-            return data;
+          const currentMatchday = data?.currentSeason?.currentMatchday;
+          const startDate = data?.currentSeason?.startDate.split("-")[0];
+  
+          const responseConfig2 = {
+              url: `https://api.football-data.org/v2/competitions/${props.id}/matches?season=${startDate}&matchday=${currentMatchday}`,
+              headers: {
+                "X-Auth-Token": "ec144945fa844a478747716a258703be",
+              },
+            };
+  
+            const applyData2 = (data) => {
+              console.log(data.matches)
+              setAllData(data.matches)
+          };
+  
+          sendRequest(responseConfig2, applyData2);
         };
         
         const responseConfig = {
@@ -25,34 +39,35 @@ const Matches = (props) => {
         };
         
         sendRequest(responseConfig, applyData);
-        
-        const {newData} = applyData()
 
-        const currentMatchday = newData?.currentSeason?.currentMatchday;
-        const startDate = newData?.currentSeason?.startDate.split("-")[0];
-
-        const responseConfig2 = {
-            url: `https://api.football-data.org/v2/competitions/${props.id}/matches?season=${startDate}&matchday=${currentMatchday}`,
-            headers: {
-              "X-Auth-Token": "ec144945fa844a478747716a258703be",
-            },
-          };
-
-          const applyData2 = (data) => {
-            setAllData(data.matches)
-        };
-
-        sendRequest(responseConfig2, applyData2);
-
-      }, [sendRequest]);
-
+      }, [sendRequest, props.id]);
+    
+      const getDate = (utctime) => {
+        const date_arr = utctime.split("T")[0].split("-");
+        return `${date_arr[1]}/${date_arr[2]}`;
+      };
+    
+      const getTime = (utctime) => {
+        const date_arr = utctime.split("T")[1].split(":");
+        return `${date_arr[0]}:${date_arr[1]}`;
+      };
+      
   return (
     <div className={classes.cardBody}>
+    {allData.map((fixture)=>
       <div className={classes.column}>
         <div className={classes.card}>
-
+        <div className={classes.card2}>
+          <div>{fixture.homeTeam.name}</div>
+          <div>VS</div>
+          <div>{fixture.awayTeam.name}</div>
+        </div>
+          <div>
+            time
+          </div>
         </div>
       </div>
+    )}
     </div>
   );
 };

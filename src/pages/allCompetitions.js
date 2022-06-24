@@ -17,7 +17,6 @@ const AllCompetitions = (props) => {
 
     const applyData = (data) => {
       setAllCompetition(data.competitions);
-      console.log(data.competitions);
     };
 
     const responseConfig = {

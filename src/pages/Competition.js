@@ -13,6 +13,8 @@ const Competition = (props) => {
   const [allData, setAllData] = useState([]);
   const [checkTable, setcheckTable] = useState(false);
   const { isError, isLoading, sendRequest } = useHttp();
+  const [display, setDisplay] = useState([]);
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
     const apiKey = "ec144945fa844a478747716a258703be";
@@ -21,10 +23,11 @@ const Competition = (props) => {
     const applyData = (data) => {
       if (data.standings[0].table.length > 0) {
         setAllData(data.standings[0].table);
+        setDisplay(data)
+        console.log(data)
       } else {
         setcheckTable(true);
       }
-      console.log(data.standings[0].table);
     };
 
     const responseConfig = {
@@ -36,10 +39,12 @@ const Competition = (props) => {
 
     sendRequest(responseConfig, applyData);
   }, [sendRequest, id]);
-
+ 
+  // const competition = `${display.competition.name}`
   return (
     <Section>
-      <Navbar />
+      <Navbar display={display}/>
+      <button></button>
       <Standing
         id={id}
         allData={allData}
@@ -47,7 +52,7 @@ const Competition = (props) => {
         isLoading={isLoading}
         isError={isError}
       />
-      <Matches />
+      <Matches id={id}/>
     </Section>
   );
 };

@@ -3,32 +3,6 @@ import { Circles } from "react-loader-spinner";
 import LoaderState from "./LoaderState";
 
 const Standing = (props) => {
-//   const [allData, setAllData] = useState([]);
-//   const [checkTable, setcheckTable] = useState(false);
-//   const { isError, isLoading, sendRequest } = useHttp();
-
-//   useEffect(() => {
-//     const apiKey = "ec144945fa844a478747716a258703be";
-//     const url = `http://api.football-data.org/v2/competitions/${props.id}/standings?standingType=TOTAL`;
-
-//     const applyData = (data) => {
-//       if(data.standings[0].table.length > 0){
-//         setAllData(data.standings[0].table);
-//       }else{
-//         setcheckTable(true)
-//       }
-//       console.log(data.standings[0].table);
-//     };
-
-//     const responseConfig = {
-//       url: url,
-//       headers: {
-//         "X-Auth-Token": apiKey,
-//       },
-//     };
-
-//     sendRequest(responseConfig, applyData);
-//   }, [sendRequest]);
 
   return (
     <div>
