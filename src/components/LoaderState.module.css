@@ -1,0 +1,13 @@
+.loader{
+    padding: 40px;
+    justify-content: center;
+    flex: auto;
+ }
+ 
+ .loaderinner{
+     margin: auto;
+     position: relative;
+     justify-content: center;
+     align-items: center;
+     width: 20%;
+ }

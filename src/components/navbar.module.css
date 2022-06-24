@@ -1,0 +1,12 @@
+.navbar{
+    margin: 20px 10px;
+    font-weight: 500;
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar{
+        color: red;
+        margin: 0px 0px 30px 10px;
+    }
+  }

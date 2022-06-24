@@ -1,0 +1,65 @@
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px 10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  padding: 16px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  display: flex;
+  cursor: pointer;
+}
+
+.card:hover{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cardBody {
+  margin: 0 -5px;
+}
+
+.cardBody:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.img{
+  width: 100px;
+  height: 100px;
+}
+.imgdiv{
+ margin-right: 20px;
+}
+
+.link{
+  color: black;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    padding: 0px;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid red;
+    padding: 16px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .link{
+    color: red;
+  }
+}
+
+/* Style the counter cards */
