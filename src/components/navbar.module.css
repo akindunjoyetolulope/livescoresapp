@@ -4,9 +4,16 @@
     color: black;
 }
 
+.navbartext{
+    color: black;
+}
+
 @media screen and (max-width: 600px) {
     .navbar{
         color: red;
         margin: 0px 0px 30px 10px;
+    }
+    .navbartext{
+        color: red;
     }
   }

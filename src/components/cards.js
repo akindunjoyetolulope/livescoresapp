@@ -16,7 +16,7 @@ const Card = (props) => {
           <div className={classes.imgdiv}>
             <img src={data.emblemUrl} className={classes.img} alt='competition logo' /> 
           </div>
-          <div>
+          <div className='mt-5'>
             <p>{data.name}</p>
             <p>{data.area.name}</p>
           </div>

@@ -4,6 +4,16 @@
   padding: 10px 10px;
 }
 
+.textl{
+  color: red;
+}
+.textw{
+  color: green;
+}
+.text{
+  text-align: end;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: 1px solid black;
@@ -13,9 +23,27 @@
   display: flex;
   cursor: pointer;
 }
-
 .card2{
-  margin-right: 20px;
+  justify-content: space-between;
+}
+
+.block{
+  display: block;
+}
+
+.matchimg{
+  margin: 2px;
+}
+
+.innercard{
+  display: flex ;
+  margin: 5px;
+  width: 250px;
+  border: 1px solid red;
+}
+
+.innercardscore{
+  margin: 5px;
 }
 
 .card:hover{
