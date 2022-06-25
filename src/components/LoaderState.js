@@ -8,5 +8,4 @@ const LoaderState = (props) => {
   );
 };
 
-
 export default LoaderState;

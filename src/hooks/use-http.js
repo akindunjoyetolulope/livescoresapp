@@ -24,8 +24,8 @@ const useHttp = () => {
       setIsError(err.message || "Something Went Wrong! :(");
     }
     setIsLoading(false);
-  },[]);
-  return {isError, isLoading, sendRequest}
+  }, []);
+  return { isError, isLoading, sendRequest };
 };
 
 export default useHttp;

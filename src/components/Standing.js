@@ -3,7 +3,6 @@ import { Circles } from "react-loader-spinner";
 import LoaderState from "./LoaderState";
 
 const Standing = (props) => {
-
   return (
     <div>
       {props.isLoading && (
